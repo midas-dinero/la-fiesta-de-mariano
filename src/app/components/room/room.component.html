@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="container bg-secondary p-3 p-lg-5 rounded">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="text-center fw-bold">La Fiesta de Mariano</h1>
+            <button class="btn btn-warning align-self-start" (click)="swapTheme()"><i class="bi bi-palette2"></i></button>
+        </div>
+
+        <hr>
+    
+        <form [formGroup]="playerForm" class="container my-5 text-center">
+
+            <div class="row mb-5 gap-3">
+                <div class="col input-group">
+                    <span class="input-group-text d-none d-md-block" id="player-name">Player Name</span>
+                    <input type="text" formControlName="playerName" class="form-control" id="playerName" aria-describedby="player-name" placeholder="Enter player name">
+                </div>
+                <div class="col input-group">
+                    <span class="input-group-text d-none d-md-block" id="token-color">Token Color</span>
+                    <input type="color" formControlName="tokenColor" class="form-control form-control-color" id="tokenColor" aria-describedby="token-color" value="#563d7c" title="Choose your color">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-info" (click)="addPlayer()">Add Player</button>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success" (click)="startBoard()">Start !</button>
+
+        </form>
+
+        <hr>
+
+        <div class="row">
+            <div *ngFor="let token of getTokens(); let i = index" class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="position-absolute top-0 end-0 mt-2 me-2 d-inline-block rounded-circle"
+                                style="width: 30px; height: 30px;" [style.background-color]="token.color_hex"></div>
+                        <h5 class="card-title">{{ token.name }}</h5>
+                        <p class="card-text">{{ token.color_hex }}</p>
+                        <button class="btn btn-danger" (click)="removePlayer(i)">Remove</button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="getTokens().length === 0">
+                <p class="text-center fst-italic">No players added yet</p>
+            </div>
+        </div>
+    </div>
+</div>

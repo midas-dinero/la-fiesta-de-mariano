@@ -1,0 +1,9 @@
+<div class="d-flex flex-row">
+        <div class="game-board">
+        <img [src]="boardImagePath" alt="Game Board" class="vh-100" (load)="onImageLoad()">
+        <div *ngFor="let token of getTokens()" class="token" 
+                [style.top.px]="calculateTop(token.top)" [style.left.px]="calculateLeft(token.left)"
+                [style.background-color]="token.color_hex"></div>
+    </div>
+    <app-game-info class="flex-fill d-flex flex-column vh-100"></app-game-info>
+</div>

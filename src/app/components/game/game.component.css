@@ -1,0 +1,12 @@
+.game-board {
+  position: relative;
+}
+
+.token {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+  /* Adjust styles for your tokens */
+}
