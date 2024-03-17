@@ -33,9 +33,10 @@ export class GameLogicService {
     const point = this.getRandomCoordinates(square.center_coord[0], square.center_coord[1], 25);
     
     this.tokens.push({
-      square: 35,
+      square: 0,
       top: point.y,
       left: point.x,
+      
       name,
       color_hex
     });
