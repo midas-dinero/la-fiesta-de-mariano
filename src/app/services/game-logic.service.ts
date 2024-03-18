@@ -88,6 +88,17 @@ export class GameLogicService {
       setTimeout(() => {
         this.router.navigate(['/game/end']);
       }, 3000);
+    } else if (square.special === 'TO_START') {
+      // Goes back to start square
+      setTimeout(() => {
+        this.tokens[this.currentToken].square = 0;
+
+        const square = this.json_data.squares[this.tokens[this.currentToken].square];
+
+        const point = this.getRandomCoordinates(square.center_coord[0], square.center_coord[1], 25);
+        this.tokens[this.currentToken].left = point.x;
+        this.tokens[this.currentToken].top = point.y;
+      }, 1500);
     } else if (square.special === 'EXTRA_ROLL') {
       // Do nothing
     }
