@@ -384,6 +384,7 @@
         },
         {
             "description": "Vuelve a la casilla de salida",
+            "special": "TO_START",
             "color_hex": "#536674",
             "center_coord": [
                 471.25,
