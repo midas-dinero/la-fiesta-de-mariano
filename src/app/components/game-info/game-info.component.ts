@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
 import { GameLogicService } from '../../services/game-logic.service';
+import { BehaviorSubject } from 'rxjs';
+import { Token } from 'src/app/models/Token';
 
 
 @Component({
@@ -9,15 +11,29 @@ import { GameLogicService } from '../../services/game-logic.service';
   styleUrls: ['./game-info.component.css']
 })
 export class GameInfoComponent {
+
+  description: { text: string, color: string } = { text: '', color: '' };
+  player: { name: string, color: string } = { name: '', color: '' };
+  moveInfo$: BehaviorSubject<{ token: Token | undefined, square: number }> = this.gameLogicService.lastMove$;
   
-  constructor(private gameLogicService: GameLogicService) { }
+  constructor(private gameLogicService: GameLogicService) {
+    this.moveInfo$.subscribe((moveInfo: { token: Token | undefined, square: number }) => {
+      console.log('Received info:', moveInfo);
+      
+      this.description.text = this.gameLogicService.getDescriptionCurrentSquare(moveInfo.square);
+      this.description.color = this.gameLogicService.getDescriptionColorCurrentSquare(moveInfo.square);
+      if (moveInfo.token === undefined) {
+        this.player.name = '';
+        this.player.color = '';
+      } else {
+        this.player.name = moveInfo.token.name;
+        this.player.color = moveInfo.token.color_hex;
+      }
+    });
+  }
 
   moveCurrentToken(squares: number) {
     this.gameLogicService.updateTokenSquares(squares);
-  }
-
-  getDescription(): string {
-    return this.gameLogicService.getDescriptionCurrentSquare();
   }
 
   getBoardName(): string {
@@ -26,10 +42,6 @@ export class GameInfoComponent {
 
   getBoardColor(): string {
     return this.gameLogicService.json_data.color_hex;
-  }
-
-  getDescriptionColor(): string {
-    return this.gameLogicService.getDescriptionColorCurrentSquare();
   }
 
   private isDark(color: string): boolean {
