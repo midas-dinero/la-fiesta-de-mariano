@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { GameLogicService } from '../../services/game-logic.service';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Component({
@@ -9,15 +10,25 @@ import { GameLogicService } from '../../services/game-logic.service';
   styleUrls: ['./game-info.component.css']
 })
 export class GameInfoComponent {
+
+  description: { text: string, color: string } = { text: '', color: '' };
+  square$: BehaviorSubject<number> = this.gameLogicService.square$;
   
-  constructor(private gameLogicService: GameLogicService) { }
+  constructor(private gameLogicService: GameLogicService) {
+    this.gameLogicService.square$.subscribe((square: number) => {
+      console.log('Received square:', square);
+      
+      this.description.text = this.getDescription();
+      this.description.color = this.getDescriptionColor();
+    });
+  }
 
   moveCurrentToken(squares: number) {
     this.gameLogicService.updateTokenSquares(squares);
   }
 
   getDescription(): string {
-    return this.gameLogicService.getDescriptionCurrentSquare();
+    return this.gameLogicService.getDescriptionCurrentSquare(this.square$.value);
   }
 
   getBoardName(): string {
@@ -29,7 +40,7 @@ export class GameInfoComponent {
   }
 
   getDescriptionColor(): string {
-    return this.gameLogicService.getDescriptionColorCurrentSquare();
+    return this.gameLogicService.getDescriptionColorCurrentSquare(this.square$.value);
   }
 
   private isDark(color: string): boolean {

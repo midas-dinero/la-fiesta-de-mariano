@@ -3,7 +3,7 @@
     {{ getBoardName() }}
 </div>
 <app-dice class="my-auto text-center"></app-dice>
-<div [style.background-color]="getDescriptionColor()" [class]="getTextColorFromBackground(getDescriptionColor())"
+<div [style.background-color]="description.color" [class]="getTextColorFromBackground(description.color)"
         class="p-3 fs-2 fw-bold fst-italic text-center d-flex align-items-center justify-content-center h-50">
-    {{ getDescription() }}
+    {{ description.text }}
 </div>
