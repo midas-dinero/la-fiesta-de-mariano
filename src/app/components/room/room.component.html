@@ -19,11 +19,11 @@
                     <input type="color" formControlName="tokenColor" class="form-control form-control-color" id="tokenColor" aria-describedby="token-color" value="#563d7c" title="Choose your color">
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-info" (click)="addPlayer()">Add Player</button>
+                    <button type="submit" class="btn btn-info" (click)="addPlayer()"><i class="bi bi-person-plus"></i> Add Player</button>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-success" (click)="startBoard()">Start !</button>
+            <button type="submit" class="btn btn-success" (click)="startBoard()"><i class="bi bi-play"></i> Start !</button>
 
         </form>
 
@@ -37,7 +37,7 @@
                                 style="width: 30px; height: 30px;" [style.background-color]="token.color_hex"></div>
                         <h5 class="card-title">{{ token.name }}</h5>
                         <p class="card-text">{{ token.color_hex }}</p>
-                        <button class="btn btn-danger" (click)="removePlayer(i)">Remove</button>
+                        <button class="btn btn-danger" (click)="removePlayer(i)"><i class="bi bi-person-dash"></i> Remove</button>
                     </div>
                 </div>
             </div>
