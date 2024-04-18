@@ -14,16 +14,18 @@ export class GameLogicService {
 
   tokens: Token[] = [];
   currentToken: number = 0;
-  availableBoards: string[] = [];
+  availableBoards!: string[];
+  availableBoards$: Observable<string[]> = of();
   json_data!: BoardData;
   json_data$: Observable<BoardData> = of();
 
   constructor(private http: HttpClient, private router: Router) {
     // Load default board
-    this.loadBoard('board_1.json');
+    this.loadBoard('board_1_es.json');
 
     // Load available boards
-    this.http.get<string[]>('assets/boards/available_boards.json').subscribe((data: string[]) => {
+    this.availableBoards$ = this.http.get<string[]>('assets/boards/available_boards.json')
+    this.availableBoards$.subscribe((data: string[]) => {
       this.availableBoards = data;
     });
   }
@@ -129,6 +131,10 @@ export class GameLogicService {
 
   isEnded(): boolean {
     return this.json_data.squares[this.tokens[this.currentToken].square].special === 'END';
+  }
+
+  getAvailableBoards(): string[] {
+    return this.availableBoards;
   }
 
 }
