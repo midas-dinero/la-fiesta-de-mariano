@@ -97,7 +97,7 @@ export class GameLogicService {
 
         const square = this.json_data.squares[this.tokens[this.currentToken].square];
 
-        const point = this.getRandomCoordinates(square.center_coord[0], square.center_coord[1], 25);
+        const point = this.getRandomCoordinates(square.center_coord[0], square.center_coord[1], 20);
         this.tokens[this.currentToken].left = point.x;
         this.tokens[this.currentToken].top = point.y;
 
