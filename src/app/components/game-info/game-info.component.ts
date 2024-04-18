@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { GameLogicService } from '../../services/game-logic.service';
 import { BehaviorSubject } from 'rxjs';
+import { Token } from 'src/app/models/Token';
 
 
 @Component({
@@ -12,23 +13,27 @@ import { BehaviorSubject } from 'rxjs';
 export class GameInfoComponent {
 
   description: { text: string, color: string } = { text: '', color: '' };
-  square$: BehaviorSubject<number> = this.gameLogicService.square$;
+  player: { name: string, color: string } = { name: '', color: '' };
+  moveInfo$: BehaviorSubject<{ token: Token | undefined, square: number }> = this.gameLogicService.lastMove$;
   
   constructor(private gameLogicService: GameLogicService) {
-    this.gameLogicService.square$.subscribe((square: number) => {
-      console.log('Received square:', square);
+    this.moveInfo$.subscribe((moveInfo: { token: Token | undefined, square: number }) => {
+      console.log('Received info:', moveInfo);
       
-      this.description.text = this.getDescription();
-      this.description.color = this.getDescriptionColor();
+      this.description.text = this.gameLogicService.getDescriptionCurrentSquare(moveInfo.square);
+      this.description.color = this.gameLogicService.getDescriptionColorCurrentSquare(moveInfo.square);
+      if (moveInfo.token === undefined) {
+        this.player.name = '';
+        this.player.color = '';
+      } else {
+        this.player.name = moveInfo.token.name;
+        this.player.color = moveInfo.token.color_hex;
+      }
     });
   }
 
   moveCurrentToken(squares: number) {
     this.gameLogicService.updateTokenSquares(squares);
-  }
-
-  getDescription(): string {
-    return this.gameLogicService.getDescriptionCurrentSquare(this.square$.value);
   }
 
   getBoardName(): string {
@@ -37,10 +42,6 @@ export class GameInfoComponent {
 
   getBoardColor(): string {
     return this.gameLogicService.json_data.color_hex;
-  }
-
-  getDescriptionColor(): string {
-    return this.gameLogicService.getDescriptionColorCurrentSquare(this.square$.value);
   }
 
   private isDark(color: string): boolean {

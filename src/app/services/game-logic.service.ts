@@ -17,7 +17,7 @@ export class GameLogicService {
   availableBoards: string[] = [];
   json_data!: BoardData;
   json_data$: Observable<BoardData> = of();
-  square$: BehaviorSubject<number> = new BehaviorSubject(0)
+  lastMove$: BehaviorSubject<{ token: Token | undefined, square: number }> = new BehaviorSubject<{ token: Token | undefined, square: number }>({ token: undefined, square: 0 })
 
   constructor(private http: HttpClient, private router: Router) {
     // Load default board
@@ -62,6 +62,7 @@ export class GameLogicService {
     if (!this.tokens[this.currentToken]) return;
 
     let newPosition = this.tokens[this.currentToken].square + squares;
+    let token = this.tokens[this.currentToken];
     let squaresLength = this.json_data.squares.length;
     let over = newPosition + 1 - squaresLength;
     
@@ -100,13 +101,13 @@ export class GameLogicService {
         this.tokens[this.currentToken].left = point.x;
         this.tokens[this.currentToken].top = point.y;
 
-        this.square$.next(0);
+        this.lastMove$.next({ token: token, square: 0 });
       }, 1500);
     } else if (square.special === 'EXTRA_ROLL') {
       // Do nothing
     }
 
-    this.square$.next(newPosition);
+    this.lastMove$.next({ token: token, square: newPosition });
     
   }
 
@@ -128,6 +129,10 @@ export class GameLogicService {
 
   getCurrentToken(): Token {
     return this.tokens[this.currentToken];
+  }
+
+  getDescriptionPlayerCurrentSquare(currentToken: number) {
+    return this.tokens[currentToken].name;
   }
 
   isEnded(): boolean {
