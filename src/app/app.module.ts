@@ -10,6 +10,7 @@ import { DiceComponent } from './components/dice/dice.component';
 import { RoomComponent } from './components/room/room.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EndComponent } from './components/end/end.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { EndComponent } from './components/end/end.component';
     GameComponent, 
     GameInfoComponent, 
     DiceComponent, 
-    RoomComponent, EndComponent,
+    RoomComponent, 
+    EndComponent, 
+    HomeComponent,
   ],
   imports: [
     BrowserModule, 
