@@ -1,5 +1,4 @@
 import { Component, HostListener } from '@angular/core';
-import { Token } from '../../models/Token';
 
 import { GameLogicService } from '../../services/game-logic.service';
 import { Router } from '@angular/router';

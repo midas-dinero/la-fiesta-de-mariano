@@ -1,1 +1,78 @@
-/* You can add global styles to this file, and also import other style files */
+.bg-secondary {
+    /* Remove default solid background */
+    background-color: transparent !important; 
+    /* Apply a semi-transparent background color (you can adjust rgba values) */
+    background-image: linear-gradient(to bottom right, rgba(108, 117, 125, 0.3), rgba(108, 117, 125, 0.1)) !important; /* Adjust rgba values for desired transparency and color */
+
+    /* Apply the blur effect */
+    backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+
+    /* Add a subtle border or shadow for depth */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+
+    /* Add a subtle text shadow for readability on blurred backgrounds */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Target the CSS variable */
+:root {
+  --bs-secondary-rgb: 108, 117, 125; /* Ensure this matches Bootstrap's default secondary color */
+}
+.bg-secondary {
+    --bs-bg-opacity: 0.2; /* Adjust overall opacity if needed, works with background-color */
+    background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important; 
+    /* Ensure backdrop-filter and border/shadow are still applied */
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Light Theme */
+.light-spatial-bg {
+  background: linear-gradient(
+    45deg,
+    #FFF8E1 0%,      /* Very light pale yellow (Paper) */
+    #FFECB3 50%,     /* Light Gold / Cream */
+    #FFE082 100%     /* Slightly deeper Gold */
+  );
+  background-size: 200% 200%;
+  animation: lightGradientMove 20s ease-in-out infinite alternate;
+  transition: background 0.7s ease-in-out;
+}
+
+/* Dark Theme */
+.dark-spatial-bg {
+  background: linear-gradient(
+    45deg,
+    #1a1a2e 0%,      /* Dark Blue */
+    #0f0f1a 50%,     /* Very Dark Blue */
+    #2a2a4a 100%     /* Medium Dark Blue */
+  );
+  background-size: 200% 200%;
+  animation: darkGradientMove 20s ease-in-out infinite alternate;
+  transition: background 0.7s ease-in-out;
+}
+
+/* --- Keyframe Animations --- */
+
+@keyframes lightGradientMove {
+  0% {
+    background-position: 0% 50%; /* Start from left-center */
+  }
+  100% {
+    background-position: 100% 50%; /* Move to right-center */
+  }
+}
+
+@keyframes darkGradientMove {
+  0% {
+    background-position: 100% 50%; /* Start from right-center */
+  }
+  100% {
+    background-position: 0% 50%; /* Move to left-center */
+  }
+}
