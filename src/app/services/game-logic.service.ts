@@ -22,7 +22,7 @@ export class GameLogicService {
 
   constructor(private http: HttpClient, private router: Router) {
     // Load default board
-    this.loadBoard('board_1_es.json');
+    this.loadBoard('original');
 
     // Load available boards
     this.availableBoards$ = this.http.get<string[]>('assets/boards/available_boards.json')
@@ -54,9 +54,12 @@ export class GameLogicService {
   }
 
   loadBoard(board: string) {
+    board += '.json'
     this.json_data$ = this.http.get<BoardData>(`assets/boards/${board}`);
     this.json_data$.subscribe((data: BoardData) => {
       this.json_data = data;
+      console.log(`Loaded board ${board}!`);
+      
     });
   }
   
