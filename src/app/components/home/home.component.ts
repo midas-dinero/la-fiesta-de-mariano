@@ -23,9 +23,11 @@ export class HomeComponent {
   }
 
   startRoom() {
-    console.log(this.roomForm.get('board')?.value());
+    // console.log(this.roomForm.get('board')?.value);
     
-    // this.router.navigate(['/room']);
+    this.router.navigate(['/room'], {
+      queryParams: { board: this.roomForm.get('board')?.value }
+    });
   }
 
   swapTheme() {

@@ -23,8 +23,9 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-success" (click)="startBoard()"><i class="bi bi-play"></i> Start !</button>
-
+            <button type="submit" class="btn btn-success" (click)="startBoard()" [disabled]="getTokens().length === 0">
+                <i class="bi bi-play"></i> Start !
+            </button>
         </form>
 
         <hr>
