@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="container bg-secondary p-3 p-lg-5 rounded">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="text-center fw-bold">La Fiesta de Mariano</h1>
+            <button class="btn btn-warning align-self-start" (click)="swapTheme()"><i class="bi bi-palette2"></i></button>
+        </div>
+
+        <hr>
+    
+        <form [formGroup]="roomForm" class="container my-5 text-center">
+
+            <h3 class="text-center">Board selection</h3>
+
+            <div class="input-group mb-5">
+                <label class="input-group-text d-none d-md-block" for="available-boards">Available boards</label>
+                <select class="form-select" id="available-boards" formControlName="board">
+                    <option *ngFor="let board of getAvailableBoards()" [value]="board">{{ board }}</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success" (click)="startRoom()">Create room !</button>
+
+        </form>
+    </div>
+</div>
