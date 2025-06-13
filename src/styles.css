@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Light Theme */
+.light-spatial-bg {
+  background: linear-gradient(
+    45deg,
+    #FFF8E1 0%,      /* Very light pale yellow (Paper) */
+    #FFECB3 50%,     /* Light Gold / Cream */
+    #FFE082 100%     /* Slightly deeper Gold */
+  );
+  background-size: 200% 200%;
+  animation: lightGradientMove 20s ease-in-out infinite alternate;
+  transition: background 0.7s ease-in-out;
+}
+
+/* Dark Theme */
+.dark-spatial-bg {
+  background: linear-gradient(
+    45deg,
+    #1a1a2e 0%,      /* Dark Blue */
+    #0f0f1a 50%,     /* Very Dark Blue */
+    #2a2a4a 100%     /* Medium Dark Blue */
+  );
+  background-size: 200% 200%;
+  animation: darkGradientMove 20s ease-in-out infinite alternate;
+  transition: background 0.7s ease-in-out;
+}
+
+/* --- Keyframe Animations --- */
+
+@keyframes lightGradientMove {
+  0% {
+    background-position: 0% 50%; /* Start from left-center */
+  }
+  100% {
+    background-position: 100% 50%; /* Move to right-center */
+  }
+}
+
+@keyframes darkGradientMove {
+  0% {
+    background-position: 100% 50%; /* Start from right-center */
+  }
+  100% {
+    background-position: 0% 50%; /* Move to left-center */
+  }
+}
