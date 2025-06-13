@@ -7,26 +7,28 @@
 
         <hr>
     
-        <form [formGroup]="playerForm" class="container my-5 text-center">
-
-            <div class="row mb-5 gap-3">
-                <div class="col input-group">
-                    <span class="input-group-text d-none d-md-block" id="player-name">Player Name</span>
-                    <input type="text" formControlName="playerName" class="form-control" id="playerName" aria-describedby="player-name" placeholder="Enter player name">
-                </div>
-                <div class="col input-group">
-                    <span class="input-group-text d-none d-md-block" id="token-color">Token Color</span>
-                    <input type="color" formControlName="tokenColor" class="form-control form-control-color" id="tokenColor" aria-describedby="token-color" value="#563d7c" title="Choose your color">
-                </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-info" (click)="addPlayer()"><i class="bi bi-person-plus"></i> Add Player</button>
-                </div>
-            </div>
-
-            <button type="submit" class="btn btn-success" (click)="startBoard()" [disabled]="getTokens().length === 0">
-                <i class="bi bi-play"></i> Start !
+<form [formGroup]="playerForm" class="container my-5 text-center">
+    <div class="row mb-5 gap-3 align-items-center">
+        <div class="col input-group">
+            <span class="input-group-text d-none d-sm-block" id="player-name">Player Name</span>
+            <input type="text" formControlName="playerName" class="form-control" id="playerName" aria-describedby="player-name" placeholder="Enter player name">
+        </div>
+        <div class="col input-group">
+            <span class="input-group-text d-none d-sm-block" id="token-color">Token Color</span>
+            <input type="color" formControlName="tokenColor" class="form-control form-control-color" id="tokenColor" aria-describedby="token-color" value="#563d7c" title="Choose your color">
+        </div>
+        <div class="col-12 col-md-auto">
+            <button type="submit" class="btn btn-info w-100" (click)="addPlayer()" [disabled]="playerForm.get('playerName')?.value?.length === 0">
+                <i class="bi bi-person-plus"></i>
+                <span class="d-inline"> Add Player</span>
             </button>
-        </form>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="startBoard()" [disabled]="getTokens().length === 0">
+        <i class="bi bi-play"></i> Start !
+    </button>
+</form>
 
         <hr>
 
