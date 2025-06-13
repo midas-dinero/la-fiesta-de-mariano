@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Token } from '../models/Token';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { BoardData } from '../models/BoardData';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
@@ -18,6 +18,7 @@ export class GameLogicService {
   availableBoards$: Observable<string[]> = of();
   json_data!: BoardData;
   json_data$: Observable<BoardData> = of();
+  lastMove$: BehaviorSubject<{ token: Token | undefined, square: number }> = new BehaviorSubject<{ token: Token | undefined, square: number }>({ token: undefined, square: 0 })
 
   constructor(private http: HttpClient, private router: Router) {
     // Load default board
@@ -61,8 +62,9 @@ export class GameLogicService {
   
   updateTokenSquares(squares: number) {    
     if (!this.tokens[this.currentToken]) return;
-    
+
     let newPosition = this.tokens[this.currentToken].square + squares;
+    let token = this.tokens[this.currentToken];
     let squaresLength = this.json_data.squares.length;
     let over = newPosition + 1 - squaresLength;
     
@@ -97,13 +99,17 @@ export class GameLogicService {
 
         const square = this.json_data.squares[this.tokens[this.currentToken].square];
 
-        const point = this.getRandomCoordinates(square.center_coord[0], square.center_coord[1], 25);
+        const point = this.getRandomCoordinates(square.center_coord[0], square.center_coord[1], 20);
         this.tokens[this.currentToken].left = point.x;
         this.tokens[this.currentToken].top = point.y;
+
+        this.lastMove$.next({ token: token, square: 0 });
       }, 1500);
     } else if (square.special === 'EXTRA_ROLL') {
       // Do nothing
     }
+
+    this.lastMove$.next({ token: token, square: newPosition });
     
   }
 
@@ -115,18 +121,20 @@ export class GameLogicService {
     return {x: randomX, y: randomY};
   }
 
-  getDescriptionCurrentSquare(): string {
-    if (!this.tokens[this.currentToken]) return '';
-    return this.json_data.squares[this.tokens[this.currentToken].square].description;
+  getDescriptionCurrentSquare(square: number): string {
+    return this.json_data.squares[square].description;
   }
 
-  getDescriptionColorCurrentSquare(): string {
-    if (!this.tokens[this.currentToken]) return '';
-    return this.json_data.squares[this.tokens[this.currentToken].square].color_hex;
+  getDescriptionColorCurrentSquare(square: number): string {
+    return this.json_data.squares[square].color_hex;
   }
 
   getCurrentToken(): Token {
     return this.tokens[this.currentToken];
+  }
+
+  getDescriptionPlayerCurrentSquare(currentToken: number) {
+    return this.tokens[currentToken].name;
   }
 
   isEnded(): boolean {

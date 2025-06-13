@@ -1,5 +1,5 @@
 <div class="d-flex flex-row">
-        <div class="game-board">
+    <div class="game-board">
         <img [src]="boardImagePath" alt="Game Board" class="vh-100" (load)="onImageLoad()">
         <div *ngFor="let token of getTokens()" class="token" 
                 [style.top.px]="calculateTop(token.top)" [style.left.px]="calculateLeft(token.left)"
