@@ -14,6 +14,8 @@ export class AppComponent {
   ngOnInit(): void {
     this.themeService.currentTheme.subscribe(theme => {
       document.body.dataset['bsTheme'] = theme;
+      document.body.classList.remove('light-spatial-bg', 'dark-spatial-bg')
+      document.body.classList.add(`${theme}-spatial-bg`)
     });
   }
   

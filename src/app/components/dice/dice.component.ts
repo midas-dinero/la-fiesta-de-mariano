@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
 
 import { GameLogicService } from '../../services/game-logic.service';
+import { ThemeService } from 'src/app/services/theme.service';
 
 
 @Component({
@@ -13,9 +14,25 @@ export class DiceComponent {
   sides: number = 0;
   currentRoll: number = 1;
 
-  constructor(private gameLogicService: GameLogicService) {
+  constructor(private gameLogicService: GameLogicService,
+    private themeService: ThemeService,
+    private el: ElementRef, 
+    private renderer: Renderer2
+    ) {
     this.gameLogicService.json_data$.subscribe((data: any) => {
       this.sides = data.dice_sides;
+    });
+  }
+
+  ngOnInit(): void {
+    this.themeService.currentTheme.subscribe((theme: any) => {
+      const host = this.el.nativeElement;
+
+      this.renderer.removeClass(host, 'light-spatial-bg');
+      this.renderer.removeClass(host, 'dark-spatial-bg');
+
+      // Add the new theme class
+      this.renderer.addClass(host, `${theme}-spatial-bg`);
     });
   }
 
