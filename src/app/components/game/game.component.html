@@ -1,9 +1,9 @@
- <div class="d-flex flex-column flex-lg-row">
+<div class="d-flex flex-orientation-column">
     <div class="game-board">
-        <img [src]="boardImagePath" alt="Game Board" class="h-lg-100vh w-lt-lg-100vw" (load)="onImageLoad()">
-        <div *ngFor="let token of getTokens()" class="token"
-                [style.top.px]="calculateTop(token.top)" [style.left.px]="calculateLeft(token.left)"
-                [style.background-color]="token.color_hex"></div>
+        <img [src]="boardImagePath" alt="Game Board" class="h-orientation-auto w-orientation-100vw img-flexible-fit" (load)="onImageLoad()">
+        <div *ngFor="let token of getTokens()" class="token" 
+             [style.top.px]="calculateTop(token.top)" [style.left.px]="calculateLeft(token.left)"
+             [style.background-color]="token.color_hex"></div>
     </div>
     <app-game-info class="flex-fill d-flex flex-column vh-100"></app-game-info>
-</div> 
+</div>
