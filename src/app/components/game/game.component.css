@@ -10,3 +10,34 @@
   border: 1px solid black;
   /* Adjust styles for your tokens */
 }
+
+/* Default for Portrait Orientation */
+.flex-orientation-column {
+    flex-direction: column !important; /* Forces column layout */
+}
+.h-orientation-auto {
+    height: auto !important; /* Height determined by content */
+    min-height: auto !important;
+    max-height: none !important;
+}
+.w-orientation-100vw {
+    width: 100vw !important; /* Full viewport width */
+    max-width: 100vw !important;
+}
+
+
+/* Landscape Orientation */
+@media (orientation: landscape) {
+    .flex-orientation-column {
+        flex-direction: row !important; /* Changes to row layout in landscape */
+    }
+    .h-orientation-auto {
+        height: 100vh !important; /* Full viewport height in landscape */
+        min-height: 100vh !important;
+        max-height: 100vh !important;
+    }
+    .w-orientation-100vw {
+        width: auto !important; /* Width determined by content/flex-fill in landscape */
+        max-width: none !important;
+    }
+}

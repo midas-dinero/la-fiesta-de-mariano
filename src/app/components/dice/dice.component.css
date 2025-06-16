@@ -1,0 +1,11 @@
+/* Default width for portrait orientation */
+.w-orientation-responsive {
+    width: 75% !important; /* Apply 75% width by default (for portrait) */
+}
+
+/* Override width for landscape orientation */
+@media (orientation: landscape) and (max-width: 767.98px) {
+    .w-orientation-responsive {
+        width: 30% !important; /* Apply 30% width in landscape */
+    }
+}
