@@ -28,11 +28,11 @@ export class DiceComponent {
     this.themeService.currentTheme.subscribe((theme: any) => {
       const host = this.el.nativeElement;
 
-      this.renderer.removeClass(host, 'light-spatial-bg');
-      this.renderer.removeClass(host, 'dark-spatial-bg');
+      // this.renderer.removeClass(host, 'light-spatial-bg');
+      // this.renderer.removeClass(host, 'dark-spatial-bg');
 
-      // Add the new theme class
-      this.renderer.addClass(host, `${theme}-spatial-bg`);
+      // // Add the new theme class
+      // this.renderer.addClass(host, `${theme}-spatial-bg`);
     });
   }
 
