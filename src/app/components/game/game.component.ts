@@ -11,8 +11,14 @@ import { Router } from '@angular/router';
 })
 export class GameComponent {
   
-  imageResizeRatio: number = 0;
   boardImagePath: string = '';
+
+  imageWidthRatio: number = 0;
+  imageHeightRatio: number = 0;
+
+  // Store the top/left offset of the image relative to its parent container
+  imageOffsetX: number = 0;
+  imageOffsetY: number = 0;
 
   constructor(private gameLogicService: GameLogicService, private router: Router) {
     this.gameLogicService.json_data$.subscribe((data: any) => {
@@ -28,25 +34,53 @@ export class GameComponent {
   
 
   onImageLoad() {
-    const image = document.querySelector('.game-board img') as HTMLImageElement; // Get reference to image
+    const image = document.querySelector('.game-board img') as HTMLImageElement;
+    if (!image) {
+      console.warn('Game board image not found. Token positioning may be incorrect.');
+      return;
+    }
 
-    const viewportHeight: number = window.innerHeight;
+    // Get the actual rendered (displayed) dimensions of the image
+    const renderedWidth = image.clientWidth;
+    const renderedHeight = image.clientHeight;
 
-    this.imageResizeRatio = viewportHeight / image.naturalHeight;
-  }    
+    // Get the image's natural (original) dimensions
+    const naturalWidth = image.naturalWidth;
+    const naturalHeight = image.naturalHeight;
+
+    // Calculate separate ratios for width and height
+    this.imageWidthRatio = renderedWidth / naturalWidth;
+    this.imageHeightRatio = renderedHeight / naturalHeight;
+
+    // Calculate the offset of the image relative to its parent (.game-board)
+    const imageRect = image.getBoundingClientRect();
+    const parentRect = image.parentElement?.getBoundingClientRect();
+
+    if (parentRect) {
+      this.imageOffsetX = imageRect.left - parentRect.left;
+      this.imageOffsetY = imageRect.top - parentRect.top;
+    } else {
+      this.imageOffsetX = 0;
+      this.imageOffsetY = 0;
+      console.warn('.game-board parent not found for image offset calculation.');
+    }
+
+    console.log(`Image Ratios: Width=${this.imageWidthRatio}, Height=${this.imageHeightRatio}`);
+    console.log(`Image Offsets: X=${this.imageOffsetX}, Y=${this.imageOffsetY}`);
+  }
 
   calculateTop(originalTop: number): number {
-    if (!this.imageResizeRatio) return 0;
-
-    return originalTop * this.imageResizeRatio;
+    if (!this.imageHeightRatio) return 0;
+    // Apply ratio and then add the vertical offset of the image within its parent
+    return originalTop * this.imageHeightRatio + this.imageOffsetY;
   }
 
   calculateLeft(originalLeft: number): number {
-    if (!this.imageResizeRatio) return 0;
-
-    return originalLeft * this.imageResizeRatio;
+    if (!this.imageWidthRatio) return 0;
+    // Apply ratio and then add the horizontal offset of the image within its parent
+    return originalLeft * this.imageWidthRatio + this.imageOffsetX;
   }
-
+  
   @HostListener('window:resize')
   onResize() {
     this.onImageLoad();
