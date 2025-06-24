@@ -174,7 +174,7 @@
             ]
         },
         {
-            "description": "Bebe el desgraciado hetero ",
+            "description": "Bebe el desgraciado hetero",
             "color_hex": "#4e72a2",
             "center_coord": [
                 296.75,
@@ -271,7 +271,7 @@
             ]
         },
         {
-            "description": "Personaje de la serie que elijas . Quien pierda 3 tragos",
+            "description": "Personaje de la serie que elijas. Quien pierda 3 tragos",
             "color_hex": "#3ea880",
             "center_coord": [
                 622.75,
@@ -327,7 +327,7 @@
             ]
         },
         {
-            "description": "Retrocede tantas casillas como jugadores hay ",
+            "description": "Retrocede tantas casillas como jugadores hay",
             "color_hex": "#9bd9e4",
             "center_coord": [
                 431.5,
@@ -359,7 +359,7 @@
             ]
         },
         {
-            "description": "Beben los maricones ",
+            "description": "Beben los maricones",
             "color_hex": "#b972fe",
             "center_coord": [
                 704.5,
