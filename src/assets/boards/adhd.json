@@ -8,72 +8,72 @@
             "description": "Salida",
             "color_hex": "#4f9ce4",
             "center_coord": [
-                175.5,
-                519.75
+                560.25,
+                175.5
             ]
         },
         {
             "description": "Para calentar: Beben todos",
             "color_hex": "#43638a",
             "center_coord": [
-                205.0,
-                407.25
+                672.75,
+                205.0
             ]
         },
         {
             "description": "Reparte 3 tragos",
             "color_hex": "#ed7799",
             "center_coord": [
-                238.75,
-                327.25
+                752.75,
+                238.75
             ]
         },
         {
             "description": "Bebe 5 tragos mientras la persona de tu izquierda te susurra cosas al oido",
             "color_hex": "#30a065",
             "center_coord": [
-                270.75,
-                254.5
+                825.5,
+                270.75
             ]
         },
         {
             "description": "Hidalgo",
             "color_hex": "#bb2c24",
             "center_coord": [
-                366.25,
-                198.0
+                882.0,
+                366.25
             ]
         },
         {
             "description": "Beben los queer icons",
             "color_hex": "#b972fe",
             "center_coord": [
-                455.25,
-                160.25
+                919.75,
+                455.25
             ]
         },
         {
             "description": "Verdad o reto",
             "color_hex": "#02422a",
             "center_coord": [
-                567.0,
-                149.5
+                930.5,
+                567.0
             ]
         },
         {
             "description": "Comparte tragos con tu pareja durante la siguiente ronda. Si no tienes, escoge a alguien",
             "color_hex": "#e05423",
             "center_coord": [
-                673.25,
-                160.25
+                919.75,
+                673.25
             ]
         },
         {
             "description": "Bebe la de las tetas grandes",
             "color_hex": "#43597e",
             "center_coord": [
-                757.5,
-                195.75
+                884.25,
+                757.5
             ]
         },
         {
@@ -81,144 +81,144 @@
             "special": "EXTRA_ROLL",
             "color_hex": "#0090d3",
             "center_coord": [
-                829.75,
-                250.5
+                829.5,
+                829.75
             ]
         },
         {
             "description": "Beben quienes han jugado al LoL",
             "color_hex": "#b972fe",
             "center_coord": [
-                886.75,
-                319.75
+                760.25,
+                886.75
             ]
         },
         {
             "description": "Obliga a alguien a que acabe la copa",
             "color_hex": "#ca6084",
             "center_coord": [
-                923.0,
-                403.75
+                676.25,
+                923.0
             ]
         },
         {
             "description": "Inventa con tu compa\u00f1ero de en frente un saludo de por vida + 5 tragos",
             "color_hex": "#29996b",
             "center_coord": [
-                938.5,
-                513.5
+                566.5,
+                938.5
             ]
         },
         {
             "description": "Beben quienes hayan jugado a las Magic",
             "color_hex": "#e99040",
             "center_coord": [
-                929.25,
-                623.25
+                456.75,
+                929.25
             ]
         },
         {
             "description": "Beben los scouts",
             "color_hex": "#405981",
             "center_coord": [
-                894.25,
-                708.0
+                372.0,
+                894.25
             ]
         },
         {
             "description": "Cascada",
             "color_hex": "#112a6d",
             "center_coord": [
-                845.0,
-                782.75
+                297.25,
+                845.0
             ]
         },
         {
             "description": "Reparte 5 tragos",
             "color_hex": "#e47fa1",
             "center_coord": [
-                774.25,
-                838.25
+                241.75,
+                774.25
             ]
         },
         {
             "description": "Hidalgo",
             "color_hex": "#bb2c24",
             "center_coord": [
-                685.5,
-                876.0
+                204.0,
+                685.5
             ]
         },
         {
             "description": "Yo nunca",
             "color_hex": "#0d563b",
             "center_coord": [
-                575.25,
-                887.0
+                193.0,
+                575.25
             ]
         },
         {
-            "description": "Beben los que hayan presentado algún TFG",
+            "description": "Beben los que hayan presentado alg\u00fan TFG",
             "color_hex": "#b972fe",
             "center_coord": [
-                461.25,
-                880.0
+                200.0,
+                461.25
             ]
         },
         {
             "description": "Lucha de miradas con la persona de enfrente. Quien pierda 3 tragos",
             "color_hex": "#4fb68b",
             "center_coord": [
-                368.75,
-                848.0
+                232.0,
+                368.75
             ]
         },
         {
             "description": "Bebe el desgraciado hetero ",
             "color_hex": "#4e72a2",
             "center_coord": [
-                296.75,
-                787.5
+                292.5,
+                296.75
             ]
         },
         {
             "description": "Cascada",
             "color_hex": "#1a3783",
             "center_coord": [
-                356.0,
-                714.75
+                365.25,
+                356.0
             ]
         },
         {
             "description": "Durante esta ronda las penalizaciones cuentan doble",
             "color_hex": "#f97d4a",
             "center_coord": [
-                209.5,
-                639.5
+                440.5,
+                209.5
             ]
         },
         {
             "description": "Reparte 2 tragos",
             "color_hex": "#d27aaa",
             "center_coord": [
-                333.5,
-                620.75
+                459.25,
+                333.5
             ]
         },
         {
             "description": "Beben las personas solteras",
             "color_hex": "#fdc613",
             "center_coord": [
-                389.25,
-                702.75
+                377.25,
+                389.25
             ]
         },
         {
             "description": "Hidalgo",
             "color_hex": "#bb2c24",
             "center_coord": [
-                472.75,
-                755.75
+                324.25,
+                472.75
             ]
         },
         {
@@ -226,160 +226,160 @@
             "special": "EXTRA_ROLL",
             "color_hex": "#02a7e1",
             "center_coord": [
-                580.0,
-                770.75
+                309.25,
+                580.0
             ]
         },
         {
             "description": "Bebe si no has comido verduras hoy",
             "color_hex": "#3d699a",
             "center_coord": [
-                679.0,
-                751.0
+                329.0,
+                679.0
             ]
         },
         {
             "description": "Ronda del juego de la moneda",
             "color_hex": "#43ae76",
             "center_coord": [
-                752.25,
-                702.75
+                377.25,
+                752.25
             ]
         },
         {
             "description": "Las parejitas bebe 5 tragos juntos",
             "color_hex": "#f6cd01",
             "center_coord": [
-                804.5,
-                623.5
+                456.5,
+                804.5
             ]
         },
         {
             "description": "Cascada",
             "color_hex": "#052a82",
             "center_coord": [
-                826.75,
-                521.0
+                559.0,
+                826.75
             ]
         },
         {
             "description": "Bebe si tu madre a\u00fan te acompa\u00f1a al m\u00e9dico",
             "color_hex": "#2e4f7a",
             "center_coord": [
-                804.75,
-                421.5
+                658.5,
+                804.75
             ]
         },
         {
             "description": "Personaje de la serie que elijas. Quien pierda 3 tragos",
             "color_hex": "#3ea880",
             "center_coord": [
-                622.75,
-                335.75
+                744.25,
+                622.75
             ]
         },
         {
             "description": "Reparte 4 tragos",
             "color_hex": "#ec96bd",
             "center_coord": [
-                666.0,
-                282.5
+                797.5,
+                666.0
             ]
         },
         {
             "description": "Beben la gente que mida m\u00e1s de 1.65",
             "color_hex": "#fdf671",
             "center_coord": [
-                563.0,
-                264.5
+                815.5,
+                563.0
             ]
         },
         {
             "description": "Canta una canci\u00f3n, quien no la siga bebe. Si nadie la conoce bebes t\u00fa",
             "color_hex": "#5ebe81",
             "center_coord": [
-                455.5,
-                285.5
+                794.5,
+                455.5
             ]
         },
         {
             "description": "Bebe si te has sacado fotos del culo",
             "color_hex": "#3c628f",
             "center_coord": [
-                372.75,
-                350.0
+                730.0,
+                372.75
             ]
         },
         {
             "description": "Crea una regla para la siguiente ronda",
             "color_hex": "#e99032",
             "center_coord": [
-                302.25,
-                424.0
+                656.0,
+                302.25
             ]
         },
         {
             "description": "Verdad o Reto",
             "color_hex": "#0a6448",
             "center_coord": [
-                310.0,
-                512.0
+                568.0,
+                310.0
             ]
         },
         {
             "description": "Retrocede tantas casillas como jugadores hay",
             "color_hex": "#9bd9e4",
             "center_coord": [
-                431.5,
-                523.5
+                556.5,
+                431.5
             ]
         },
         {
             "description": "Trabalenguas si te equivocas 3 tragos",
             "color_hex": "#3db286",
             "center_coord": [
-                464.0,
-                426.75
+                653.25,
+                464.0
             ]
         },
         {
             "description": "Bebe si eras fan de 1D o Justin Bieber",
             "color_hex": "#366496",
             "center_coord": [
-                556.25,
-                381.0
+                699.0,
+                556.25
             ]
         },
         {
             "description": "Beben las personas chikitas",
             "color_hex": "#fba663",
             "center_coord": [
-                687.25,
-                419.25
+                660.75,
+                687.25
             ]
         },
         {
             "description": "Beben los maricones",
             "color_hex": "#b972fe",
             "center_coord": [
-                704.5,
-                520.75
+                559.25,
+                704.5
             ]
         },
         {
             "description": "Reparte 1 tragos",
             "color_hex": "#e183b5",
             "center_coord": [
-                662.0,
-                620.5
+                459.5,
+                662.0
             ]
         },
         {
             "description": "Yo nunca",
             "color_hex": "#006041",
             "center_coord": [
-                561.5,
-                652.5
+                427.5,
+                561.5
             ]
         },
         {
@@ -387,8 +387,8 @@
             "special": "TO_START",
             "color_hex": "#536674",
             "center_coord": [
-                471.25,
-                621.75
+                458.25,
+                471.25
             ]
         },
         {
@@ -396,8 +396,8 @@
             "special": "END",
             "color_hex": "#191d1e",
             "center_coord": [
-                568.0,
-                515.75
+                564.25,
+                568.0
             ]
         }
     ]
